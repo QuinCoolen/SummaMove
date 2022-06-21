@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+}
+body{
+    backdrop-filter: blur(5px);
+    background-image: url('https://www.mural-wallpaper.com/wp-content/uploads/2020/11/S-SP25.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+.container{
+  
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.item1{
+    display: flex;
+    border-radius: 30px;
+box-shadow:  26px -26px 51px #27272773,
+             -26px 26px 51px #18181869;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #d6d6d6;
+    width: 20%;
+    height: 60%;
+    backdrop-filter: blur(1px);
+    margin-bottom: 10%;  
+}
+.login{
+    color: #202020;
+    vertical-align: top;
+}
+.inputs{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    color: #1c1b18;
+    width: 80%;
+    height: 5%;
+    border: 1px;
+    border-radius: 10px;
+    text-justify: distribute-all-lines;
+}
+.myButton {
+    margin-top: 40%;
+    color: black;
+    background-color: #ffd100;
+	border-radius:16px;
+ 	cursor:pointer;
+	font-size:16px;
+	padding:10px 74px;
+	text-decoration:none;
+    border: 0px;
+    -webkit-box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58); 
+box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58);
+}
+.myButton:hover {
+    transition: 400ms;
+    padding:10px 64px;
+	background-color:#3f3f3f;
+    color: white;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+#inftext{
+    color: #333533;
+     text-align: center;
+}
+td{
+    color: #000000;
+}
+.containerTable{
+    color: #464646; 
+    overflow: scroll;
+    align-items: center;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    color: #000000;
+    
+}
+table.minimalistBlack {
+    
+    position: -webkit-sticky; /* Safari */
+
+    color: #464646;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+td{
+    border-bottom: 1pt solid rgba(0, 0, 0, 0.075);
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.068); 
+box-shadow: 2px 9px 15px 5px rgba(0, 0, 0, 0.027);
+}
+
+table.minimalistBlack td, table.minimalistBlack th {
+    /* border: 1px solid #000000; */
+    padding: 15px 4px;
+}
+
+table.minimalistBlack tbody td {
+
+    font-size: 13px;
+}
+
+table.minimalistBlack thead {
+    background: #3f3f3f;
+    background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+
+
+}
+#table{
+
+    display: none;
+    width: 100vw;
+    height: 90vh;
+  
+}
+
+table.minimalistBlack thead th {
+    
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+}
+.deletebtn{
+    background-color: red;
+    height: 100%;
+}
+.btnkeuze{
+        height: 0%;
+        width: 100%;
+        
+}
+.BtnChoice{
+    background-color: #ffffff;
+    gap: 10px;
+       
+       height: 5%;
+       position: relative;
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       margin-bottom: 4%;
+   }
+   
+.BtnChoice>button{
+    border: 1px;
+    border-radius: 5px;
+    margin-top: 1px;
+    width: 10%;
+    height: 100%;
+    color: white;
+    background-color: #3f3f3f;  
+
+    -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-10px);
+		-ms-transform:     translateY(-10px);
+		transform:         translateY(-10px)
+	}
+	60% {
+		-webkit-transform: translateY(-5px);
+		-ms-transform:     translateY(-5px);
+		transform:         translateY(-5px)
+	}
+}
+
+.BtnChoice>button:hover{
+    transition: 0.6ms;
+    background-color: #ffd100;
+    color: #3f3f3f;
+    cursor: pointer;
+    animation-name: bounce;
+    -moz-animation-name: bounce;
+}
+
+.UpdateOefeningen > input{
+    width: 90%;
+    height: 10%;
+    height: 3.5%;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border: 1px;
+   border-radius: 10px;
+   color: black;
+   }
+   .UpdateOefeningen > textarea{
+    width: 90%;
+    height: 10%;
+    background-color: rgb(255, 255, 255);
+
+    border: 0px;
+   border-radius: 5px;
+   color: black;
+   }
+   .UpdateOefeningen > button{
+        position: absolute;
+        top:50%;
+       }
+       .UpdateOefeningen > p{        
+        font-weight: bold;
+        color: black;
+       }
+       .UpdateOefeningen > button :hover{
+        position: absolute;
+        top:40%;
+       }
+      
+   .UpdateOefeningen{
+       border: 1px;
+       border-radius: 5px;
+       background-color: #d6d6d6;
+       display: flex;
+       gap: 30px;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin: auto;
+       border-radius: 30px;
+       backdrop-filter: blur(5px);
+       -webkit-box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58); 
+       box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58);
+       width: 50%;
+       height: 80%;
+   }
+   .updatebtn {
+    margin-top: 40%;
+    color: black;
+    background-color: #ffd100;
+	border-radius:16px;
+ 	cursor:pointer;
+	font-size:16px;
+	padding:10px 74px;
+	text-decoration:none;
+    border: 0px;
+    -webkit-box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58); 
+box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58);
+}
+.updatebtn:hover {
+    transition: 400ms;
+    padding:10px 64px;
+	background-color:#3f3f3f;
+    color: white;
+}
+.UpdateGebruikers > input{
+    width: 70%;
+    height: 10%;
+    height: 3.5%;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border: 1px;
+   border-radius: 10px;
+   color: black;
+   }
+
+   .UpdateGebruikers > button{
+        position: absolute;
+        top:50%;
+       }
+       .UpdateGebruikers > p{        
+        font-weight: bold;
+        color: black;
+       }
+       .UpdateGebruikers > button :hover{
+        position: absolute;
+        top:50%;
+       }
+      
+   .UpdateGebruikers{
+       border: 1px;
+       border-radius: 5px;
+       background-color: #d6d6d6;
+       display: flex;
+       gap: 30px;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin: auto;
+       border-radius: 30px;
+       backdrop-filter: blur(5px);
+       -webkit-box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58); 
+       box-shadow: 2px 12px 29px -4px rgba(0,0,0,0.58);
+       width: 30%;
+       height: 80%;
+   }
+   #roleSelect{
+    color: black;
+    background-color: #ffd100;
+   }
+   #roleSelectreg{
+    color: black;
+    background-color: #ffd100;
+   }
+   #btnreg{
+    top:60%;
+   }
