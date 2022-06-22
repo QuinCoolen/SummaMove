@@ -1,4 +1,3 @@
-const { CardStyleInterpolators } = require("@react-navigation/stack");
 
 const apibasis = "http://localhost:8000/api/"; 
 const apipresentatie = apibasis+"presentaties"
@@ -18,8 +17,6 @@ var TableHeader ="<th>naam</th><th>beschrijving-NL</th><th>beschrijving-ENG</th>
 let jsonUpdate={}; // global update array fo 2 tables 
 let IdUpdate =""; // global let to save the id for updates
 //____________________________________________________________________________________________ LOGIN SECTION _________________________________________________________________________________________________________
-
-
 
 const login = async () =>{ // login function 
    
@@ -120,7 +117,7 @@ const btngebruikers =()=>{
 }
 const btnprestaties =()=>{
     defineLoad = "prestaties";
-    TableHeader ="<th>datum</th><th>starttijd</th><th>eindtijd</th><th>oefeningid </th><th>userid</th><th>aantal</th>"
+    TableHeader ="<th>datum</th><th>starttijd</th><th>eindtijd</th><th>oefeningid</th><th>userid</th><th>aantal</th>"
     HeaderChanger();
     GetData();
 }
@@ -192,6 +189,7 @@ const updateData = async( )=>{
 
                 $("#table").fadeIn('slow', function(){
                     $("#UpdateOefeningen").fadeOut('fast').css("display", "none");
+                    $("#UpdateGebruikers").fadeOut('fast').css("display", "none");
                     $("#BtnChoice").fadeIn('fast').css("display", "flex");
                     });
             }

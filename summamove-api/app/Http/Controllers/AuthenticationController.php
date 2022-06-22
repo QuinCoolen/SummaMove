@@ -22,7 +22,7 @@ class AuthenticationController extends Controller
     public function register(Request $request)
 
     {
-        
+       
         $attr = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
@@ -63,8 +63,19 @@ class AuthenticationController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $request->user()->currentAccessToken()->delete();
-        $user->update($request->all());
+        // $attr = $request->validate([
+        //     'password' => 'required|string|min:6'
+        // ]);
+        // $user->update($request->all());
+        $attr = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
+
+        $user->update(['name' => $attr['name'],
+        'password' => bcrypt($attr['password']),
+        'email' => $attr['email']]);
         $response = [
             'success' => true,
             'data'    =>  $user,
