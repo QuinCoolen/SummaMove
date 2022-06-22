@@ -10,7 +10,7 @@ use App\Http\Controllers\PrestatiesController;
 // _________________________________________________________________________login/register______________________________________________________
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
-Route::apiResource('/oefeningen', OefeneningenController::class);
+Route::apiResource('/oefeningen', OefeneningenController::class)->only(['index', 'show']);;
 
 //_______________________________________________________________________________auth____________________________________________________________
 
@@ -21,7 +21,7 @@ Route::apiResource('/oefeningen', OefeneningenController::class);
      Route::get('/users', [AuthenticationController::class, 'index']);
      Route::patch('/users/{user}', [AuthenticationController::class, 'update']);
      Route::delete('/users/{user}', [AuthenticationController::class, 'destroy']);
-
+     Route::apiResource('/oefeningen', OefeneningenController::class)->except(['index', 'show']);;
      Route::apiResource('prestaties', PrestatiesController::class)->parameters(['prestaties' => 'prestatie']);;
      
      Route::get('prestaties/{id}/users', [PrestatiesController::class, 'indexUser']);
