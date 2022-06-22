@@ -14,12 +14,11 @@ class OefeneningenController extends Controller
      */
     public function index()
     {
-
+      
         $response = [
             'success' => true,
             'data'    => oefeningen::All(),
-            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
-            'token_type' => 'Bearer'
+           
         ];
         return response()->json($response, 200);
     }
