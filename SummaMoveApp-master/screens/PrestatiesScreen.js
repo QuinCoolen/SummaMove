@@ -14,7 +14,6 @@ const PrestatieScreen = ({navigation,route}) => {
          console.log("got:" + userid)
          id = userid;
     });
-
     let AccessToken;
     getCurrentToken((token) => {
       // console.log("got:" + token)
@@ -37,6 +36,8 @@ const PrestatieScreen = ({navigation,route}) => {
                 foto = json.data[0].foto;
                 setData(json.data);
                setLoading(false);
+               console.log();
+               setToken(json.access_token);
             }
         } catch (error) {
             console.log(error)
@@ -46,11 +47,7 @@ const PrestatieScreen = ({navigation,route}) => {
         Getoefeningen();
     }, []);
 
-    const Item = () => (
-        <View style={{ display:"flex",alignItems:"center", justifyContent:"center"}} >
-    <Image style={{ width:400,height:300, marginTop:20 }} source={{  uri: "https://i1.sndcdn.com/artworks-BryYhZ1w20ACsciS-SJBUbA-t500x500.jpg",}}></Image>
-        </View>
-);
+
     return (
         <View style={styles.container}>
             <View style={{ flex: 1, padding: 24 }}>

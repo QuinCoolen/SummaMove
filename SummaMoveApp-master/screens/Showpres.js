@@ -7,11 +7,13 @@ import { Image } from 'react-native';
 import React from 'react'
 
 const Showpres = ({ navigation, route }) => {
+  
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   let foto = "";
   const image = { uri: "https://img.freepik.com/free-vector/white-abstract-background_23-2148810112.jpg?w=2000" };
   let idoefening = route.params.oefening.id;
+  let naamoefening = route.params.oefening.naam;
 
     setoefening(idoefening);
 
@@ -26,7 +28,7 @@ const Showpres = ({ navigation, route }) => {
     // get id from autojs.
     let id;
     getUser((userid) => {
-      console.log("got:" + userid)
+      //console.log("got:" + userid)
       id = userid;
     });
 
@@ -76,7 +78,7 @@ const Showpres = ({ navigation, route }) => {
           )}
         />
       )}
-      <Pressable style={styles.CreateBtn}  onPress={() => { navigation.navigate('CreatePresscreen')}}>
+      <Pressable style={styles.CreateBtn}  onPress={() => { navigation.navigate('CreatePresscreen',{id: idoefening, naam:naamoefening})}}>
             <Text style={{ color:"white",margin:'auto'}}>Maak aan</Text>
       </Pressable>
     </View>

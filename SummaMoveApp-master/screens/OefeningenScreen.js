@@ -12,7 +12,6 @@ const OefeningenScreen = ({navigation,route}) => {
         <TouchableOpacity>
             <View style={styles.item}>
                 <Text style={styles.title}>{title}</Text>
-                <Text style={styles.description}>{description}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -41,20 +40,6 @@ const OefeningenScreen = ({navigation,route}) => {
     useEffect(() => {
         getOefeningen();
     }, []);
-
-
-    // let AccessToken;
-    // getCurrentToken((token) => {
-    //     // console.log("got:" + token)
-    //     AccessToken = token;
-    // });
-
-    // let id;
-    // getUser((userid) => {
-    //     // console.log("got:" + token)
-    //     id = userid;
-    // });
-
     return (
         <View style={{ flex: 1, padding: 24 }}>
             {isLoading ? <ActivityIndicator /> : (
@@ -65,7 +50,6 @@ const OefeningenScreen = ({navigation,route}) => {
                     <View>
                         <Pressable  onPress={() => { navigation.navigate('BekijkOefening', { oefening:item })}}>
                             <Text>{item.naam}</Text>
-                            <Text>{item.beschrijvingNL}</Text>
                         </Pressable>
                     </View>
 

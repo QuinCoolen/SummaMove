@@ -1,23 +1,23 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import PrestatieScreen from './PrestatiesScreen';
 import OefeningenScreen from './OefeningenScreen';
 import bekijkoefening from './bekijkoefening';
 import Showscreen from './Showpres';
 import CreatePres from './CreatePres';
 
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 function DrawerMenu() {
     return (
-      <Drawer.Navigator useLegacyImplementation>
-      <Drawer.Screen name="Oefeningen" component={OefeningenScreen} />
-        <Drawer.Screen name="Prestaties" component={PrestatieScreen} />
-        <Drawer.Screen name="BekijkOefening" component={bekijkoefening} />
-        <Drawer.Screen name="Showscreen" component={Showscreen} />
-        <Drawer.Screen name="CreatePresscreen" component={CreatePres} />
-      </Drawer.Navigator>
+      <Stack.Navigator useLegacyImplementation>
+        <Stack.Screen name="Prestaties" component={PrestatieScreen} />
+      <Stack.Screen name="Oefeningen" component={OefeningenScreen} />
+        <Stack.Screen name="BekijkOefening" component={bekijkoefening} />
+        <Stack.Screen name="Showscreen" component={Showscreen} />
+        <Stack.Screen name="CreatePresscreen" component={CreatePres} />
+      </Stack.Navigator>
     );
   }
 

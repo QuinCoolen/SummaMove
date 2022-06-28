@@ -1,23 +1,25 @@
-import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, Pressable, ImageBackground, TextInput, Button } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, Pressable, ImageBackground, TextInput, Button,Alert } from "react-native";
 import { useState, useEffect } from "react";
 import { getCurrentToken, setToken, getUser, setUser, setoefening, Getoefening, } from "./Auto";
 import { Image } from 'react-native';
 
 import React from 'react'
 
-const CreatePres = (navigation, route) => {
+const CreatePres = ({navigation, route}) => {
   const [datum, setdatum] = useState("");
   const [starttijd, setStarttijd] = useState("");
   const [eindtijd, setEindtijd] = useState("");
   const [aantal, setAantal] = useState("1");
+  console.log(route.params.naam)
   let AccessToken;
     getCurrentToken((token) => {
       // console.log("got:" + token)
       AccessToken = token;
     });
-  let oefeningid;
+
+  let oefeningid ="";
   Getoefening((oefeningid) => {
-    // console.log("got:" + oefeningid)
+    console.log(oefeningid)
     oefeningid = oefeningid;
   });
 
@@ -36,26 +38,24 @@ const CreatePres = (navigation, route) => {
     return re.test(time);
 
   }
-
-
   const onSubmit = () => {
     if (validateDate(datum)) {
-      console.log("right date")
+       console.log("right date")
 
-      if (validatetime(starttijd)) {
-        console.log("right time")
-        if (validatetime(eindtijd)) {
+       if (validatetime(starttijd)) {
+         console.log("right time")
+         if (validatetime(eindtijd)) {
           Create();
-        } 
-        else {
-          console.log("wrong time start tijd")
-        }
-      } else {
-        console.log("wrong time")
-      }
-    } else {
-      console.log("wrong date")
-    }
+         } 
+         else {
+           console.log("wrong time start tijd")
+         }
+       } else {
+         console.log("wrong time")
+       }
+     } else {
+       console.log("wrong date")
+     }
   }
   const Create = async ()=>{
     try {
@@ -64,25 +64,27 @@ const CreatePres = (navigation, route) => {
       headers: {
         'Content-Type': 'application/json',
         Accept: "application/json",
-        // Authorization: "Bearer "+AccessToken,       
+        Authorization: "Bearer "+AccessToken,       
       },
       body: JSON.stringify({
         datum: datum,
         starttijd: starttijd,
         eindtijd: eindtijd,
-        oefeningid: oefeningid,
+        oefeningid: route.params.id,
         userid : Userid,
         aantal:aantal
       })
     });
     } catch (error) {
-      
+      console.log(error);
+      Alert.alert("er is iets mis gegaan bij het aanmaken van de prestatie");
     }
     
   }
 
   return (
     <View style={styles.container}>
+      <Text>prestatie voor {route.params.naam} aamaken </Text>
       <TextInput
         style={styles.input}
         onChangeText={(newdate) => setdatum(newdate)}
