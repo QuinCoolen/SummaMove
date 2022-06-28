@@ -56,7 +56,7 @@ const PrestatieScreen = ({navigation,route}) => {
                     data={data}
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
-                    <View >
+                    <View style={styles.item}>
                            <Pressable style={styles.divies}  onPress={() => { navigation.navigate('Showscreen', { oefening:item })}}>
                            <Image style={{ width:"100%",height:"100%",  opacity: 0.3}} source={{  uri: item.foto,}}></Image>
                             <Text style={{ position:'absolute', color:'#FFFFFF',marginTop:100, fontSize:30 }}>{item.naam}</Text>
@@ -92,6 +92,9 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.14,
         shadowRadius: 20,
+    },
+    item:{
+        margin: 5,
     }
 });
 

@@ -1,31 +1,44 @@
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import PrestatieScreen from './PrestatiesScreen';
-import OefeningenScreen from './OefeningenScreen';
-import bekijkoefening from './bekijkoefening';
-import Showscreen from './Showpres';
-import CreatePres from './CreatePres';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Stack = createStackNavigator();
-
-function DrawerMenu() {
+const HomeScreen = ({navigation, route}) => {
     return (
-      <Stack.Navigator useLegacyImplementation>
-        <Stack.Screen name="Prestaties" component={PrestatieScreen} />
-      <Stack.Screen name="Oefeningen" component={OefeningenScreen} />
-        <Stack.Screen name="BekijkOefening" component={bekijkoefening} />
-        <Stack.Screen name="Showscreen" component={Showscreen} />
-        <Stack.Screen name="CreatePresscreen" component={CreatePres} />
-      </Stack.Navigator>
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.screen} onPress={() => navigation.navigate('Oefeningen')}>
+                <Text style={styles.title}>Oefeningen</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.screen} onPress={() => navigation.navigate('Prestaties')}>
+                <Text style={styles.title}>Prestaties</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.screen} onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.title}>Log Out</Text>
+            </TouchableOpacity>
+        </View>
     );
-  }
-
-const HomeScreen = () => {
-    return (
-        <NavigationContainer independent={true}>
-          <DrawerMenu />
-        </NavigationContainer>
-      );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  screen: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderWidth: 2,
+    borderRadius: 20,
+    width: 200,
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
+});
+
 export default HomeScreen;
