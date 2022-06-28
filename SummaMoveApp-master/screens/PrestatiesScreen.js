@@ -50,14 +50,14 @@ const PrestatieScreen = ({navigation,route}) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1, padding: 24 }}>
+            <View style={{ flex: 1, padding: 24, width: '100%' }}>
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
                     data={data}
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
                     <View style={styles.item}>
-                           <Pressable style={styles.divies}  onPress={() => { navigation.navigate('Showscreen', { oefening:item })}}>
+                           <Pressable style={styles.divies}  onPress={() => { navigation.navigate('ShowScreen', { oefening:item })}}>
                            <Image style={{ width:"100%",height:"100%",  opacity: 0.3}} source={{  uri: item.foto,}}></Image>
                             <Text style={{ position:'absolute', color:'#FFFFFF',marginTop:100, fontSize:30 }}>{item.naam}</Text>
                             </Pressable>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#606060',
       height:200,
-      width:400,
+      width: '100%',
 
       shadowColor: "#000",
         shadowOffset: {

@@ -46,6 +46,7 @@ const CreatePres = ({navigation, route}) => {
          console.log("right time")
          if (validatetime(eindtijd)) {
           Create();
+          navigation.navigate('Prestaties')
          } 
          else {
            console.log("wrong time start tijd")

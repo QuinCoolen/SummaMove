@@ -102,6 +102,24 @@ class OefeneningenController extends Controller
         ];
         return response()->json($response, 200);  
     }
-}  
+    
+    public function indexNoLOG()
+    {  
+        $response = [
+            'success' => true,
+            'data'    => oefeningen::All(),
+        ];
+        return response()->json($response, 200);
+    }
+    public function showNoLog(oefeningen $oefeningen, $id)
+    {
+        $response = [
+            'success' => true,
+            'data'    =>  oefeningen::find($id),
+            
+        ];
+        return response()->json($response, 200);     
+    }
+}
     
 

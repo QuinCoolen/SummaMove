@@ -26,13 +26,16 @@ class AuthenticationController extends Controller
         $attr = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'role' => 'required|string|min:3'
         ]);
 
         $user = User::create([
             'name' => $attr['name'],
             'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
+            'email' => $attr['email'],
+            'role' => $attr['role']
+
         ]);
         return response()->json(['message' => 'Registration successful'], 200);
     }
@@ -63,14 +66,21 @@ class AuthenticationController extends Controller
 
     public function update(Request $request, User $user)
     {
+        // $attr = $request->validate([
+        //     'password' => 'required|string|min:6'
+        // ]);
+        // $user->update($request->all());
         $attr = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'role' => 'required|string|min:3'
+
         ]);
 
         $user->update(['name' => $attr['name'],
         'password' => bcrypt($attr['password']),
+        'role' => $attr['role'],
         'email' => $attr['email']]);
         $response = [
             'success' => true,

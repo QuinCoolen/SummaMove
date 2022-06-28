@@ -10,6 +10,10 @@ use App\Http\Controllers\PrestatiesController;
 // _________________________________________________________________________login/register______________________________________________________
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
+
+Route::get('oefeningenNO', [OefeneningenController::class, 'indexNoLOG']);
+Route::get('oefeningenNO/{id}', [OefeneningenController::class, 'showNoLog']);
+
 //_______________________________________________________________________________auth____________________________________________________________
 
  Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -22,10 +26,13 @@ Route::post('/login', [AuthenticationController::class, 'login']);
 
      Route::apiResource('prestaties', PrestatiesController::class)->parameters(['prestaties' => 'prestatie']);;
      Route::apiResource('/oefeningen', OefeneningenController::class);
-     
      Route::get('prestaties/{id}/users', [PrestatiesController::class, 'indexUser']);
      Route::get('prestaties/{id}/oefeningen', [PrestatiesController::class, 'indexOefeningen']);
+
+    Route::get('/oefening/{id}/prestatie/{presid}', [PrestatiesController::class, 'indexUseroef']);
+
     Route::post('/logout', [AuthenticationController::class, 'logout']);
+
 });
 Route::fallback(function () {
     return response()->json([

@@ -81,7 +81,6 @@ class PrestatiesController extends Controller
 
     public function indexUser(Request $request, $id)
     {
-        $request->user()->currentAccessToken()->delete();
         $response = [
             'success' => true,
             'data'    => prestatie::where('userid',$id)->get(),
@@ -93,7 +92,7 @@ class PrestatiesController extends Controller
 
     public function indexOefeningen(Request $request, $id)
     {
-        $request->user()->currentAccessToken()->delete();
+        
         $response = [
             'success' => true,
             'data'    => prestatie::where('oefeningid',$id)->get(),
@@ -102,4 +101,16 @@ class PrestatiesController extends Controller
         ];
         return response()->json($response, 200);
     }
+    
+    public function indexUseroef(Request $request,$id,$presid)
+    {
+        $response = [
+            'success' => true,
+            'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'data'    =>  prestatie::where('oefeningid',$id)->where('userid',$presid)->get(),
+            'token_type' => 'Bearer'
+        ];
+        return response()->json($response, 200);
+    }
 }
+

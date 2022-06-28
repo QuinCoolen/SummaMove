@@ -1,6 +1,7 @@
 import { TouchableOpacity, Text, StyleSheet, View, FlatList,ActivityIndicator,Pressable } from "react-native";
 import { getCurrentToken, setToken, getUser, setUser } from "./Auto";
 import { useState,useEffect } from "react";
+import { Image } from 'react-native';
 
 const OefeningenScreen = ({navigation,route}) => {
 
@@ -47,9 +48,10 @@ const OefeningenScreen = ({navigation,route}) => {
                     data={data}
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
-                    <View>
-                        <Pressable  onPress={() => { navigation.navigate('BekijkOefening', { oefening:item })}}>
-                            <Text>{item.naam}</Text>
+                    <View >
+                        <Pressable style={styles.divies} onPress={() => { navigation.navigate('BekijkOefening', { oefening:item })}}>
+                            <Image style={{ width:"100%",height:"100%",  opacity: 0.3}} source={{  uri: item.foto,}}></Image>
+                            <Text style={styles.title}>{item.naam}</Text>
                         </Pressable>
                     </View>
 
@@ -68,7 +70,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     item: {
-        marginTop:"10px",
         backgroundColor: '#fff',
         padding: 15,
         width: 200,
@@ -77,11 +78,32 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     title: {
-        marginTop:"10px",
+        position:'absolute',
         fontSize: 32,
+        color:"white"
     },
     description: {
         fontSize: 16,
     },
+    divies: {
+        overflow: 'hidden',
+        borderWidth: 0.5,
+        borderRadius: 20,
+        display: "flex",
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#606060',
+        height: 150,
+        width: '100%',
+        marginTop:10,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 4,
+          height: 14,
+        },
+        shadowOpacity: 0.14,
+        shadowRadius: 20,
+      },
 });
+
 export default OefeningenScreen;
