@@ -10,12 +10,14 @@ import bekijkoefening from './screens/bekijkoefening';
 import NavScreen from './screens/NavScreen';
 import ShowScreen from './screens/Showpres';
 import CreatePres from './screens/CreatePres';
+import RegisterScreen from './screens/Register';
 const Stack = createStackNavigator();
 
 const SummaMoveStack = () => {
   return (
     <Stack.Navigator>
-    <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="SummaMove" component={HomeScreen} />
         <Stack.Screen name="Navigator" component={NavScreen} />
         <Stack.Screen name="Prestaties" component={PrestatieScreen} />

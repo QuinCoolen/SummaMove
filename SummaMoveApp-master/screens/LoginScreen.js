@@ -61,8 +61,10 @@ const login = async ()=>{
         <Pressable style={styles.Button}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => {
           login();
         }}>Inloggen</Text></Pressable>
+        <Pressable style={styles.Button2}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => {
+          navigation.navigate("Register");
+        }}>register</Text></Pressable>
         </View>
-                <View style={{ flex: 1, backgroundColor: "green" }} ></View>
         </View>
     )
 }
@@ -82,7 +84,19 @@ const styles = StyleSheet.create({
       Button:{
         display:"flex",
         position:"absolute",
-        bottom:80,
+        bottom:"50%",
+        justifyContent:'center',
+        height:40,
+        width:200,
+        border:"1px",
+        borderRadius:"10px",
+        backgroundColor:"#6200ee"
+
+      },
+      Button2:{
+        display:"flex",
+        position:"absolute",
+        bottom:"40%",
         justifyContent:'center',
         height:40,
         width:200,
