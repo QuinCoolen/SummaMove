@@ -1,4 +1,5 @@
-import { Text, StyleSheet, View,TextInput,Button,Pressable,Alert} from "react-native";
+import { Text, StyleSheet, View,Button,Pressable,Alert} from "react-native";
+import {TextInput} from "react-native-paper";
 import { useState } from "react";
 import { setToken } from "./Auto";
 import { setUser } from "./Auto";
@@ -47,6 +48,7 @@ const login = async ()=>{
         onChangeText={(Textmail)=>setEmail(Textmail)}
         value={email}
         placeholder="email"
+        mode={'outlined'}
         />
         {/* __________________________________________________________________________ password */}
       <TextInput
@@ -54,10 +56,11 @@ const login = async ()=>{
         onChangeText={(Textpassword)=>setPassword(Textpassword)}
         value={password}
         placeholder="wachtwoord"
+        mode={'outlined'}
         />
-        <Pressable style={styles.Button}><Text style={{margin:"auto", textAlign:"center", justifyContent:"center"}}  onPress={() => {
+        <Pressable style={styles.Button}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => {
           login();
-        }}>inloggen</Text></Pressable>
+        }}>Inloggen</Text></Pressable>
         </View>
                 <View style={{ flex: 1, backgroundColor: "green" }} ></View>
         </View>
@@ -74,9 +77,7 @@ const styles = StyleSheet.create({
     input: {
         height: 40,
         margin: 12,
-        borderWidth: 1,
-        padding: 10,
-        width:400
+        width: '100%'
       },
       Button:{
         display:"flex",
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
         width:200,
         border:"1px",
         borderRadius:"10px",
-        backgroundColor:"blue"
+        backgroundColor:"#6200ee"
 
       },
       Title:{

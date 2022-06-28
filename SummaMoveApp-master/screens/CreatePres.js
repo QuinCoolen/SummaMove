@@ -1,7 +1,8 @@
-import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, Pressable, ImageBackground, TextInput, Button,Alert } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, Pressable, ImageBackground, Alert } from "react-native";
 import { useState, useEffect } from "react";
 import { getCurrentToken, setToken, getUser, setUser, setoefening, Getoefening, } from "./Auto";
 import { Image } from 'react-native';
+import {TextInput, Button} from "react-native-paper";
 
 import React from 'react'
 
@@ -91,6 +92,7 @@ const CreatePres = ({navigation, route}) => {
         onChangeText={(newdate) => setdatum(newdate)}
         placeholder="DD/MM/YY"
         onSubmitEditing={onSubmit}
+        mode={'outlined'}
       />
 
       <TextInput
@@ -98,23 +100,27 @@ const CreatePres = ({navigation, route}) => {
         onChangeText={(newstarttijd) => setStarttijd(newstarttijd)}
         placeholder="UUR:MIN:SEC"
         onSubmitEditing={onSubmit}
+        mode={'outlined'}
       />
 
       <TextInput
         style={styles.input}
         onChangeText={(neweindtijd) => setEindtijd(neweindtijd)}
         placeholder="UUR:MIN:SEC"
+        mode={'outlined'}
       />
 
       <TextInput
         style={styles.input}
         onChangeText={(newAantal) => setAantal(newAantal)}
-        placeholder="aatnal"
-       keyboardType={'numeric'} // This prop help to open numeric keyboard
+        placeholder="aantal"
+        keyboardType={'numeric'} // This prop help to open numeric keyboard
+        mode={'outlined'}
       />
       <Button onPress={() => {
         onSubmit();
-      }}>onSubmit</Button>
+      }} 
+      mode={'outlined'} style={styles.button}>Submit</Button>
     </View>
   )
 
@@ -123,7 +129,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center'
   },
+  input: {
+    width: '90%'
+  },
+  button: {
+    marginTop: 25,
+  }
 });
 
 

@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     borderWidth: 2,
     borderRadius: 20,
+    borderColor: '#6200ee',
     width: 200,
   },
   title: {

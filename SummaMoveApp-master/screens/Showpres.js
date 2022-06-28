@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   CreateBtn:{
     color:"white",
     position:'sticky',
-    backgroundColor:"#8074F4",
+    backgroundColor:"#6200ee",
     textAlign:"center",
     width:"100%",
     height:40,
