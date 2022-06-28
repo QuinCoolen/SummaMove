@@ -36,7 +36,7 @@ const login = async () =>{ // login function
             console.log('access_token: ', access_token,);
             role = respons.data.userData[0].role;
             const json = await respons.data
-            access_token = json.access_token
+            console.log();
             showtable();
         }
         catch{
@@ -66,8 +66,7 @@ const HeaderChanger =() =>{
 
 const GetData = async ()  =>{
     console.log("Get cars")
-    console.log(access_token
-        )
+    console.log(access_token)
     const response = await axios.get("http://localhost:8000/api/"+defineLoad, {
         headers: {
             'Content-Type': 'application/json',
@@ -75,10 +74,12 @@ const GetData = async ()  =>{
             'Authorization':'Bearer '+ access_token
         }
     })
+    access_token =    access_token = respons.data.access_token; 
     const json = await response.data
-        access_token = json.access_token
+    
+        console.log(access_token)
         global =json.data
-        console.log(global)
+        console.log(access_token)
         loadData();
 } 
 //_______________________________________________________________________________________ LOAD DATA IN TO TABLE SECTION________________________________________________________________________________________________

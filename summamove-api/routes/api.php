@@ -10,8 +10,6 @@ use App\Http\Controllers\PrestatiesController;
 // _________________________________________________________________________login/register______________________________________________________
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
-Route::apiResource('/oefeningen', OefeneningenController::class)->only(['index', 'show']);;
-
 //_______________________________________________________________________________auth____________________________________________________________
 
  Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -21,8 +19,9 @@ Route::apiResource('/oefeningen', OefeneningenController::class)->only(['index',
      Route::get('/users', [AuthenticationController::class, 'index']);
      Route::patch('/users/{user}', [AuthenticationController::class, 'update']);
      Route::delete('/users/{user}', [AuthenticationController::class, 'destroy']);
-     Route::apiResource('/oefeningen', OefeneningenController::class)->except(['index', 'show']);;
+
      Route::apiResource('prestaties', PrestatiesController::class)->parameters(['prestaties' => 'prestatie']);;
+     Route::apiResource('/oefeningen', OefeneningenController::class);
      
      Route::get('prestaties/{id}/users', [PrestatiesController::class, 'indexUser']);
      Route::get('prestaties/{id}/oefeningen', [PrestatiesController::class, 'indexOefeningen']);
