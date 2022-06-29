@@ -9,13 +9,7 @@ const OefeningenScreen = ({navigation,route}) => {
     const [data, setData] = useState([]);
     let foto ="";
 
-    const Item = ({ title, description }) => (
-        <TouchableOpacity>
-            <View style={styles.item}>
-                <Text style={styles.title}>{title}</Text>
-            </View>
-        </TouchableOpacity>
-    );
+ 
     const getOefeningen = async () => {
         try {
            

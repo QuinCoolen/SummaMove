@@ -1,0 +1,30 @@
+{
+    "translation": {
+      "hello":"Hello",
+      "this line is translated":"This line is translated",
+
+      "login":"Login",
+      "exercises":"Exercises",
+      "performance":"Performance",
+      "logout":"log out",
+      "register":"Register",
+      "amount":"Number of repetitions",
+
+  
+      "create":"Add performance ",
+      "prestext":"view all your performance for",
+      "Date":"Date",
+      "Start time":"Start time",
+      "End time":"End time",
+
+      "name":"name",
+      "email":"Email address",
+      "password":"password",
+      "confirm password":"confirm password",
+      "wrong":"Wrong login details"
+
+      
+      
+
+    }
+  }

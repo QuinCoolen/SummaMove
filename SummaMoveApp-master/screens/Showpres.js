@@ -3,15 +3,20 @@ import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, 
 import { useState, useEffect } from "react";
 import { getCurrentToken, setToken, getUser, setUser,setoefening,Getoefening } from "./Auto";
 import { Image } from 'react-native';
-
 import React from 'react'
 
+
+import "../i18n/i18n";
+import {useTranslation} from 'react-i18next';
+
 const Showpres = ({ navigation, route }) => {
-  
+  const {t, i18n} = useTranslation();
+  const [currentLanguage,setLanguage] =useState('en');
+
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   let foto = "";
-  const image = { uri: "https://img.freepik.com/free-vector/white-abstract-background_23-2148810112.jpg?w=2000" };
+  const image = { uri: "https://img.freepik.com/free-vector/white-blurred-background_1034-249.jpg" };
   let idoefening = route.params.oefening.id;
   let naamoefening = route.params.oefening.naam;
 
@@ -59,7 +64,7 @@ const Showpres = ({ navigation, route }) => {
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <Text style={{ textAlign: 'center', marginBottom: 10, }}>all uw prestaties voor: {route.params.oefening.naam}</Text>
+      <Text style={{ textAlign: 'center', marginBottom: 10, }}>{t('prestext')}{' '} {route.params.oefening.naam}</Text>
       {isLoading ? <ActivityIndicator /> : (
         <FlatList
           data={data}
@@ -68,10 +73,10 @@ const Showpres = ({ navigation, route }) => {
             <View style={styles.container}>
                 <View style={styles.divies}>
                 <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-                  <Text style={styles.TXT}>Datum: {item.datum}</Text>
-                  <Text style={styles.TXT}>starttijd: {item.starttijd}</Text>
-                  <Text style={styles.TXT}>eindtijd:{item.eindtijd}</Text>
-                  <Text style={styles.TXT}>aantal herhalingen: {item.aantal}</Text>
+                  <Text style={styles.TXT}>{t('Date')}{' '}:{item.datum}</Text>
+                  <Text style={styles.TXT}>{t('Start time')}:{' '}{item.starttijd}</Text>
+                  <Text style={styles.TXT}>{t('End time')}:{' '}{item.eindtijd}</Text>
+                  <Text style={styles.TXT}>{t('amount')}:{' '}{item.aantal}</Text>
                   </ImageBackground>
                 </View>
             </View>
@@ -79,7 +84,7 @@ const Showpres = ({ navigation, route }) => {
         />
       )}
       <Pressable style={styles.CreateBtn}  onPress={() => { navigation.navigate('CreatePresscreen',{id: idoefening, naam:naamoefening})}}>
-            <Text style={{ color:"white",margin:'auto'}}>Maak aan</Text>
+            <Text style={{ color:"white",margin:'auto'}}>{t('create')}{' '}</Text>
       </Pressable>
     </View>
   )

@@ -1,0 +1,27 @@
+{
+    "translation": {
+      "hello":"Hallo",
+      "this line is translated":"This line is translated",
+
+      
+      "login":"Inloggen",
+      "exercises":"Oefeningen",
+      "performance":"Prestaties",
+      "logout":"Uitloggen",
+      "register":"Registreer",
+      "amount":"Aantal herhalingen",
+      "create":"Maak prestatie aan",
+      
+      "prestext":"bekijk al uw prestaties voor",
+      "Date":"Datum",
+      "Start time":"Starttijd",
+      "End time":"Eindtijd",
+
+      "name":"Naam",
+      "email":"E-mailadres",
+      "password":"Wachtwoord",
+      "confirm password":"bevestig wachtwoord",
+      "wrong":"Fout inloggegevens"
+
+    }
+  }
