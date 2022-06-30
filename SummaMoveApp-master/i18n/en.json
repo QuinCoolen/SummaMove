@@ -21,7 +21,13 @@
       "email":"Email address",
       "password":"password",
       "confirm password":"confirm password",
-      "wrong":"Wrong login details"
+      "changelang":"Select your language",
+
+      "wrong":"Wrong login details",
+      "edit":"edit",
+      "delete":"Verwijder"
+
+      
 
       
       

@@ -21,7 +21,10 @@
       "email":"E-mailadres",
       "password":"Wachtwoord",
       "confirm password":"bevestig wachtwoord",
-      "wrong":"Fout inloggegevens"
+      "changelang":"Selecteer je taal",
+      "wrong":"Fout inloggegevens",
+      "edit":"Wijzig",
+      "delete":"Verwijder"
 
     }
   }

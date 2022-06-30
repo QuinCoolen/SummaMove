@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, Pressable, ImageBackground } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View, FlatList, ActivityIndicator, Pressable, ImageBackground, Alert } from "react-native";
 
 import { useState, useEffect } from "react";
 import { getCurrentToken, setToken, getUser, setUser,setoefening,Getoefening } from "./Auto";
@@ -8,6 +8,7 @@ import React from 'react'
 
 import "../i18n/i18n";
 import {useTranslation} from 'react-i18next';
+import { Button } from "react-native-paper";
 
 const Showpres = ({ navigation, route }) => {
   const {t, i18n} = useTranslation();
@@ -53,6 +54,35 @@ const Showpres = ({ navigation, route }) => {
         setData(json.data);
         setToken(json.access_token);
         setLoading(false);
+       
+      }
+    } catch (error) {
+      console.log(error)
+      Alert.Alert("er is iets mis gegaan bij het laden van gegevens. probreer het later nog een keer");
+    }
+  }
+  const DeletePress = async (id)=>{
+    console.log(id)
+    let AccessToken;
+
+    getCurrentToken((token) => {
+      console.log("got:" + token)
+      AccessToken = token;
+    });
+    try {
+      const response = await fetch('http://localhost:8000/api/prestaties/' + id, {
+        method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "Bearer " + AccessToken,
+        }
+      });
+      const json = await response.json();
+      if (response.status == 200) {
+        console.log(json.data);
+        setToken(json.access_token);
+        GetUserPrestaties();
       }
     } catch (error) {
       console.log(error)
@@ -77,6 +107,8 @@ const Showpres = ({ navigation, route }) => {
                   <Text style={styles.TXT}>{t('Start time')}:{' '}{item.starttijd}</Text>
                   <Text style={styles.TXT}>{t('End time')}:{' '}{item.eindtijd}</Text>
                   <Text style={styles.TXT}>{t('amount')}:{' '}{item.aantal}</Text>
+                  <Button >{t('edit')}{' '}</Button>
+                  <Button onPress={()=>DeletePress(item.id)}>{t('delete')}{' '}</Button>
                   </ImageBackground>
                 </View>
             </View>

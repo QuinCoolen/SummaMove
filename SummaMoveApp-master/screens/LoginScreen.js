@@ -79,7 +79,7 @@ const login = async ()=>{
         style={styles.input}
         onChangeText={(Textmail)=>setEmail(Textmail)}
         value={email}
-        placeholder="email"
+        placeholder={t('email')}
         mode={'outlined'}
         />
         {/* __________________________________________________________________________ password */}
@@ -87,7 +87,7 @@ const login = async ()=>{
         style={styles.input}
         onChangeText={(Textpassword)=>setPassword(Textpassword)}
         value={password}
-        placeholder="wachtwoord"
+        placeholder={t('password')}
         mode={'outlined'}
         />
         <Text>
@@ -99,7 +99,7 @@ const login = async ()=>{
         <Pressable style={styles.Button2}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => {
           navigation.navigate("Register");
         }}>{t('register')}{' '}</Text></Pressable>
-            <Text style={styles.changelangtxt }>change Language</Text>
+            <Text style={styles.changelangtxt }>{t('changelang')}{' '}</Text>
             <Pressable style={styles.Button3}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => changeLanguage('en')} >en</Text></Pressable>
             <Pressable style={styles.Button4}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => changeLanguage('nl')} >nl</Text></Pressable>
         </View>
