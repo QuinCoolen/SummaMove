@@ -42,8 +42,8 @@ const login = async ()=>{
         'Accept': 'application/json',         
       },
       body: JSON.stringify({
-        email: email,
-        password: password
+        email: "admin@gmail.com",
+        password: "admin123"
       })
     });
     const json = await response.json();

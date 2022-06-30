@@ -12,11 +12,12 @@ const CreatePres = ({navigation, route}) => {
   const {t, i18n} = useTranslation();
   const [currentLanguage,setLanguage] =useState('en');
 
-  const [datum, setdatum] = useState("");
-  const [starttijd, setStarttijd] = useState("");
-  const [eindtijd, setEindtijd] = useState("");
-  const [aantal, setAantal] = useState("1");
-  console.log(route.params.naam)
+  const [datum, setdatum] = useState(route.params.prestatie.datum);
+  const [starttijd, setStarttijd] = useState(route.params.prestatie.starttijd);
+  const [eindtijd, setEindtijd] = useState(route.params.prestatie.eindtijd);
+  const [aantal, setAantal] = useState(route.params.prestatie.aantal);
+  
+  let id = route.params.prestatie.id;
   let AccessToken;
     getCurrentToken((token) => {
       // console.log("got:" + token)
@@ -51,7 +52,7 @@ const CreatePres = ({navigation, route}) => {
        if (validatetime(starttijd)) {
          console.log("right time")
          if (validatetime(eindtijd)) {
-          Create();
+            updatepres();
           navigation.navigate('Prestaties')
          } 
          else {
@@ -64,37 +65,44 @@ const CreatePres = ({navigation, route}) => {
        console.log("wrong date")
      }
   }
-  const Create = async ()=>{
+  const updatepres = async ()=>{
+   
     try {
-      const response = await fetch('http://localhost:8000/api/prestaties/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: "application/json",
-        Authorization: "Bearer "+AccessToken,       
-      },
-      body: JSON.stringify({
-        datum: datum,
-        starttijd: starttijd,
-        eindtijd: eindtijd,
-        oefeningid: route.params.id,
-        userid : Userid,
-        aantal:aantal
-      })
-    });
-    } catch (error) {
-      console.log(error);
-      Alert.alert("er is iets mis gegaan bij het aanmaken van de prestatie");
-    }
-    
+        const response = await fetch('http://localhost:8000/api/prestaties/'+id, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: "application/json",
+          Authorization: "Bearer "+AccessToken,       
+        },
+        body: JSON.stringify({
+          datum: datum,
+          starttijd: starttijd,
+          eindtijd: eindtijd,
+          oefeningid: route.params.id,
+          userid : Userid,
+          aantal:aantal
+        }),
+        
+      });
+      const json = await response.json();
+      if (response.status == 200) {
+        console.log(json.data);
+        setToken(json.access_token);
+      }
+      } catch (error) {
+        console.log(error);
+        Alert.alert("er is iets mis gegaan bij het Wijzigen van je prestatie");
+      }
   }
 
   return (
     <View style={styles.container}>
-      <Text>prestatie voor {route.params.naam} aamaken </Text>
+        
       <TextInput
         style={styles.input}
         onChangeText={(newdate) => setdatum(newdate)}
+        defaultValue = {datum}
         placeholder="DD/MM/YY"
         onSubmitEditing={onSubmit}
         mode={'outlined'}
@@ -103,6 +111,7 @@ const CreatePres = ({navigation, route}) => {
       <TextInput
         style={styles.input}
         onChangeText={(newstarttijd) => setStarttijd(newstarttijd)}
+        value = {starttijd}
         placeholder="UUR:MIN:SEC"
         onSubmitEditing={onSubmit}
         mode={'outlined'}
@@ -111,6 +120,7 @@ const CreatePres = ({navigation, route}) => {
       <TextInput
         style={styles.input}
         onChangeText={(neweindtijd) => setEindtijd(neweindtijd)}
+        defaultValue = {eindtijd}
         placeholder="UUR:MIN:SEC"
         mode={'outlined'}
       />
@@ -118,6 +128,7 @@ const CreatePres = ({navigation, route}) => {
       <TextInput
         style={styles.input}
         onChangeText={(newAantal) => setAantal(newAantal)}
+        defaultValue = {aantal}
         placeholder={t('amount')}
         keyboardType={'numeric'} // This prop help to open numeric keyboard
         mode={'outlined'}
@@ -125,7 +136,7 @@ const CreatePres = ({navigation, route}) => {
       <Button onPress={() => {
         onSubmit();
       }} 
-      mode={'outlined'} style={styles.button}>Submit</Button>
+      mode={'outlined'} style={styles.button}>{t('edit')}{' '}</Button>
     </View>
   )
 

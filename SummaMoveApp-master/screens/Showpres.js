@@ -107,7 +107,7 @@ const Showpres = ({ navigation, route }) => {
                   <Text style={styles.TXT}>{t('Start time')}:{' '}{item.starttijd}</Text>
                   <Text style={styles.TXT}>{t('End time')}:{' '}{item.eindtijd}</Text>
                   <Text style={styles.TXT}>{t('amount')}:{' '}{item.aantal}</Text>
-                  <Button >{t('edit')}{' '}</Button>
+                  <Button onPress={() => { navigation.navigate('wijzigscreen',{prestatie: item})}}>{t('edit')}{' '}</Button>
                   <Button onPress={()=>DeletePress(item.id)}>{t('delete')}{' '}</Button>
                   </ImageBackground>
                 </View>
