@@ -1,6 +1,7 @@
 let acces_token;
 let userid;
 let oefeningid;
+let langu;
 
 export function getCurrentToken(callback) {
     if (callback) {
@@ -39,4 +40,16 @@ export function Getoefening(callback){
 export function setoefening(idoef){
     oefeningid = idoef;
     console.log(userid);
+}
+
+export function getBeschrijving(callback){
+    if (callback) {
+        callback(langu)
+    } else {
+        return langu    
+    }
+}
+export function setBeschrijving(value){
+    langu = value;
+    console.log(value);
 }

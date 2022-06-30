@@ -3,9 +3,13 @@ import {TextInput} from "react-native-paper";
 import { useState } from "react";
 import { setToken } from "./Auto";
 import { setUser } from "./Auto";
-
+import "../i18n/i18n";
+import {useTranslation} from 'react-i18next';
 
 const Register= ({navigation, route}) => {
+  const {t, i18n} = useTranslation();
+  const [currentLanguage,setLanguage] =useState('en');
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -44,8 +48,8 @@ const Register= ({navigation, route}) => {
             <TextInput
                 style={styles.input}
                 onChangeText={(BigName)=>setName(BigName)}
-                value={name}
-                placeholder="name"
+                value= {name}
+                placeholder= {t('name')}
                 mode={'outlined'}
                 />
 
@@ -53,7 +57,7 @@ const Register= ({navigation, route}) => {
                 style={styles.input}
                 onChangeText={(Text1)=>setEmail(Text1)}
                 value={email}
-                placeholder="email"
+                placeholder={t('email')}
                 mode={'outlined'}
                 />
                 
@@ -61,7 +65,7 @@ const Register= ({navigation, route}) => {
                 style={styles.input}
                 onChangeText={(Text2)=>setPassword(Text2)}
                 value={password}
-                placeholder="password"
+                placeholder={t('password')}
                 mode={'outlined'}
                 />
                 
@@ -69,10 +73,10 @@ const Register= ({navigation, route}) => {
                 style={styles.input}
                 onChangeText={(Text3)=>setConfPassword(Text3)}
                 value={ConfPassword}
-                placeholder="confpassword"
+                placeholder={t('confirm password')}
                 mode={'outlined'}
                 />
-                <Button onPress={() => RegisterUser()} title={"Register"}>Register</Button>
+                <Button onPress={() => RegisterUser()} title={t('register')}>{t('register')}{' '} </Button>
         </View>
     )
 }

@@ -1,11 +1,26 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { useState, useEffect } from "react";
+import { getCurrentToken, setToken, getUser, setUser,setoefening,Getoefening,getBeschrijving } from "./Auto";
+
 
 const bekijkoefening = ({ navigation, route }) => {
+  let Language ;
+
+  let lang ="";
+  getBeschrijving((token) => {
+  console.log("got:" + token)
+  lang = token;
+});
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  let Language = route.params.oefening.beschrijvingNL;
+ 
+  if(lang == "en"){ 
+    Language = route.params.oefening.beschrijvingENG;
+  }
+  else{
+    Language = route.params.oefening.beschrijvingNL;
+  }
   let foto = "";
   foto = route.params.oefening.foto
   console.log(foto);

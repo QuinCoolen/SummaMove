@@ -6,7 +6,12 @@ import {TextInput, Button} from "react-native-paper";
 
 import React from 'react'
 
+import "../i18n/i18n";
+import {useTranslation} from 'react-i18next';
 const CreatePres = ({navigation, route}) => {
+  const {t, i18n} = useTranslation();
+  const [currentLanguage,setLanguage] =useState('en');
+
   const [datum, setdatum] = useState("");
   const [starttijd, setStarttijd] = useState("");
   const [eindtijd, setEindtijd] = useState("");
@@ -113,7 +118,7 @@ const CreatePres = ({navigation, route}) => {
       <TextInput
         style={styles.input}
         onChangeText={(newAantal) => setAantal(newAantal)}
-        placeholder="aantal"
+        placeholder={t('amount')}
         keyboardType={'numeric'} // This prop help to open numeric keyboard
         mode={'outlined'}
       />
