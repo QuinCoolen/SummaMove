@@ -6,6 +6,7 @@ import { setUser } from "./Auto";
 import { setBeschrijving } from "./Auto";
 import "../i18n/i18n";
 import {useTranslation} from 'react-i18next';
+import { color } from "react-native-reanimated";
 const LoginScreen = ({navigation, route}) => {
  
   const {t, i18n} = useTranslation();
@@ -99,6 +100,9 @@ const login = async ()=>{
         <Pressable style={styles.Button2}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => {
           navigation.navigate("Register");
         }}>{t('register')}{' '}</Text></Pressable>
+        <Pressable style={styles.Button5}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center", color:"#6200ee"}}  onPress={() => {
+          navigation.navigate("SummaMove");
+        }}>{t('skip')}{' '}</Text></Pressable>
             <Text style={styles.changelangtxt }>{t('changelang')}{' '}</Text>
             <Pressable style={styles.Button3}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => changeLanguage('en')} >en</Text></Pressable>
             <Pressable style={styles.Button4}><Text style={{margin:"auto", color: 'white', textAlign:"center", justifyContent:"center"}}  onPress={() => changeLanguage('nl')} >nl</Text></Pressable>
@@ -154,6 +158,17 @@ const styles = StyleSheet.create({
         border:"1px",
         borderRadius:"10px",
         backgroundColor:"#6200ee"
+
+      },    Button5:{
+        display:"flex",
+        position:"absolute",
+        bottom:"30%",
+        justifyContent:'center',
+        height:40,
+        width:200,
+        border:"1px",
+        borderRadius:"10px",
+        color:"#6200ee"
 
       },
       Button4:{

@@ -26,6 +26,10 @@
       "wrong":"Wrong login details",
       "edit":"edit",
       "delete":"Verwijder",
+      "skip":"continue without login",
+      "skipped":"You must be logged in to view performance",
+
+
 
       "about": "About",
       "about-text": "The SummaMove Mobile Applicatie is the best mobile application to get into shape. You can read up on different exercises under 'Exercises' and you can keep track of your exercises under the 'Performance' tab.",

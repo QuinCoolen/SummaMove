@@ -25,6 +25,8 @@
       "wrong":"Fout inloggegevens",
       "edit":"Wijzig",
       "delete":"Verwijder",
+      "skip":"verder zonder inloggen",
+      "skipped":"Je moet ingelogd zijn voor om prestaties te bekijken",
 
       "about": "Over De App",
       "about-text": "De SummaMove Mobile Applicatie kunt u gebruiken om fit mee te worden. U kunt verschillende oefening bekijken onder 'Oefeningen' en u kunt zelf uw oefeningen bij houden onder het prestaties scherm.",
