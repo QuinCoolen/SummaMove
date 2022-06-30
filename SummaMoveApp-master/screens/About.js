@@ -11,9 +11,9 @@ const About= () => {
         <View styles={styles.container}>
             <Image style={styles.image} source={{  uri: "https://www.summacollege.nl/images/default-source/logo's/logo-summa-sport.jpg?sfvrsn=24f4d85_4.png",}}></Image>
             <Text style={styles.title}>{t('about')}{' '}</Text>
-                <Text>{t('about-text')}{' '}</Text>
-                <Text>{t('support')}{' '}</Text>
-                <Text>v0.8</Text>
+                <Text style={styles.text}>{t('about-text')}{' '}</Text>
+                <Text style={styles.text}>{t('support')}{' '}</Text>
+                <Text style={styles.text}>v0.8</Text>
         </View>
     )
 }
@@ -28,12 +28,18 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 20,
       textAlign: 'center',
+      fontWeight: 'bold',
     },
     image: {
         height: 175,
         width: 352,
         margin: 'auto',
     },
+    text: {
+        fontSize: 14,
+        margin: 15,
+        textAlign: 'center',
+    }
 });
 
 export default About
