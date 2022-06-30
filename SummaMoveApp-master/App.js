@@ -12,6 +12,7 @@ import ShowScreen from './screens/Showpres';
 import CreatePres from './screens/CreatePres';
 import RegisterScreen from './screens/Register';
 import wijzig from './screens/Wijzig';
+import About from './screens/About';
 const Stack = createStackNavigator();
 
 const SummaMoveStack = () => {
@@ -21,6 +22,7 @@ const SummaMoveStack = () => {
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="SummaMove" component={HomeScreen} />
         <Stack.Screen name="Navigator" component={NavScreen} />
+        <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Prestaties" component={PrestatieScreen} />
         <Stack.Screen name="Oefeningen" component={OefeningenScreen} />
         <Stack.Screen name="BekijkOefening" component={bekijkoefening} />

@@ -24,7 +24,11 @@
       "changelang":"Selecteer je taal",
       "wrong":"Fout inloggegevens",
       "edit":"Wijzig",
-      "delete":"Verwijder"
+      "delete":"Verwijder",
+
+      "about": "Over De App",
+      "about-text": "De SummaMove Mobile Applicatie kunt u gebruiken om fit mee te worden. U kunt verschillende oefening bekijken onder 'Oefeningen' en u kunt zelf uw oefeningen bij houden onder het prestaties scherm.",
+      "support": "Als u hulp nodig heeft of u wil met de klantenservice praten, kunt u contat opnemen met de service balie op: 040 269 40 00 \n Of kom eventjes langs op: Vijfkamplaan 4, Eindhoven."
 
     }
   }

@@ -19,6 +19,10 @@ const HomeScreen = ({navigation, route}) => {
                 <Text style={styles.title}>{t('performance')}{' '}</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity style={styles.screen} onPress={() => navigation.navigate('About')}>
+                <Text style={styles.title}>{t('about')}{' '}</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.screen} onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.title}>{t('logout')}{' '}</Text>
             </TouchableOpacity>

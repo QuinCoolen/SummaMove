@@ -25,12 +25,10 @@
 
       "wrong":"Wrong login details",
       "edit":"edit",
-      "delete":"Verwijder"
+      "delete":"Verwijder",
 
-      
-
-      
-      
-
+      "about": "About",
+      "about-text": "The SummaMove Mobile Applicatie is the best mobile application to get into shape. You can read up on different exercises under 'Exercises' and you can keep track of your exercises under the 'Performance' tab.",
+      "support": "If you need assistance or have any other reason to talk to customer support, you can contact our customer service line at: 040 269 40 00 \n Or you can come by at: Vijfkamplaan 4, Eindhoven."
     }
   }
